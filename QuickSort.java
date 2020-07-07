@@ -1,6 +1,8 @@
 
 package app;
 
+import java.util.Arrays;
+
 /*
 퀵 정렬의 내부 루프는 대부분의 컴퓨터 아키텍처에서 효율적으로 작동하도록 설계되어 있고(그 이유는 메모리 참조가 지역화되어 있기 때문에 CPU 캐시의 히트율이 높아지기 때문이다.), 
 대부분의 실질적인 데이터를 정렬할 때 제곱 시간이 걸릴 확률이 거의 없도록 알고리즘을 설계하는 것이 가능하다. 
@@ -16,6 +18,11 @@ public class QuickSort {
         int[] arr = { 1, 3, 8, 9, 2, 4, 6 };
         int left = 0;
         int right = 6;
+        quickSort(arr, left, right);
+
+    }
+
+    public static void quickSort(int[] arr, int left, int right) {
         int i, j, pivot, tmp;
         if (left < right) {
             i = left;
@@ -32,6 +39,7 @@ public class QuickSort {
                 tmp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = tmp;
+                System.out.println(Arrays.toString(arr));
             }
             // 정렬 과정
             quickSort(arr, left, i - 1);
