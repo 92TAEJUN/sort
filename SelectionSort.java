@@ -1,6 +1,10 @@
 
 package app;
 
+import java.util.Arrays;
+
+import javax.swing.text.AbstractDocument.LeafElement;
+
 /*
 선택 정렬(選擇整列, selection sort)은 제자리 정렬 알고리즘의 하나로, 다음과 같은 순서로 이루어진다.
 
@@ -17,21 +21,20 @@ https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC
 
 public class SelectionSort {
     public static void main(String[] args) throws Exception {
-        // NumberBox
-        int[] number = { 9, 1, 6, 8, 4, 3, 2, 0 };
-        // indexMin : MinValueIndex , temp : MinValue
-        int indexMin, temp = 0;
-
-        for (int i = 0; i < number.length - 1; i++) {
-            indexMin = i;
-            for (int j = i + 1; j < number.length; j++) {
-                if (number[j] < number[i]) {
-                    indexMin = j;
+        int[] array = { 4, 3, 2, 10, 5, 7, 9, 1, 6 };
+        for (int i = 0; i < array.length; i++) {
+            int min = 9999, index = 0;
+            for (int j = i; j < array.length; j++) {
+                if (array[j] < min) {
+                    min = array[j];
+                    index = j;
                 }
             }
-            temp = number[indexMin];
-            number[indexMin] = number[i];
-            number[i] = temp;
+            int temp = array[i];
+            array[i] = array[index];
+            array[index] = temp;
+
+            System.out.println(Arrays.toString(array));
         }
     }
 }
