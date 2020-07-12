@@ -22,6 +22,7 @@ https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC
 public class SelectionSort {
     public static void main(String[] args) throws Exception {
         int[] array = { 4, 3, 2, 10, 5, 7, 9, 1, 6 };
+        int cnt = 0;
         for (int i = 0; i < array.length; i++) {
             int min = 9999, index = 0;
             for (int j = i; j < array.length; j++) {
@@ -29,12 +30,13 @@ public class SelectionSort {
                     min = array[j];
                     index = j;
                 }
+                cnt++;
             }
             int temp = array[i];
             array[i] = array[index];
             array[index] = temp;
 
-            System.out.println(Arrays.toString(array));
+            System.out.println(Arrays.toString(array) + " / " + cnt);
         }
     }
 }

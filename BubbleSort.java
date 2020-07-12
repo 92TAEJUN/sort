@@ -14,15 +14,17 @@ https://ko.wikipedia.org/wiki/%EA%B1%B0%ED%92%88_%EC%A0%95%EB%A0%AC
 public class BubbleSort {
     public static void main(String[] args) throws Exception {
         int[] array = { 4, 3, 2, 10, 5, 7, 9, 1, 6 };
-        for (int i = 0; i < array.length; i++) {
+        int cnt = 0;
+        for (int i = 0; i < array.length - 1; i++) {
             for (int j = 1; j < array.length - i; j++) {
                 if (array[j] < array[j - 1]) {
                     int temp = array[j];
                     array[j] = array[j - 1];
                     array[j - 1] = temp;
                 }
+                cnt++;
             }
-            System.out.println(Arrays.toString(array));
+            System.out.println(Arrays.toString(array) + " / " + cnt);
         }
     }
 }
